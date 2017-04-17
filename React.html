@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<meta charset="UTF-8" /> 
+<title>MIN FÖRSTA REACT</title>
+<script src="https://unpkg.com/react@latest/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<!---style--->
+<style type="text/css">
+	.parallax {
+            /* The image used */
+            background-image: url("Japanese_yellow_rose.JPG");
+
+            /* Set a specific height */
+            min-height: 300px;
+		    margin: 40px;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+    }
+	   
+	body{
+		background-color:black;
+		color:green;
+	}
+	
+	h1,h2{
+		font-family: cinzel;
+		text-align: center;
+		font-weight: bold;
+	}
+	
+	.text{
+		text-align: center;
+	    margin: 70px;
+		margin-top: -5px;
+		margin-bottom: -5px;
+		
+	}
+	
+	#app-root1{
+		text-align: center;
+		background-color:yellow
+		color: black;
+		margin: 100px;
+		margin-top: -3px;
+		margin-bottom: -3px;
+		
+	
+	}
+	
+	
+	 .backnd {
+            background-color: yellow;
+		    
+		 
+        }
+        .classone {
+            background-color: green;
+            color:yellow ;
+        }
+        .classtwo {
+            background-color: yellow;
+            border: 1px solid green;
+            color: green;
+		
+	
+        }
+        .btn:hover {
+            color: black;
+        }
+	
+	
+	.col-sm-4
+	{
+		text-align: center;
+		
+		
+	}
+	
+	.col-sm-1
+	{
+	background-color: green;
+		color: yellow;
+		width: 1%;
+		text-align: center;
+		position: relative;
+		left: 49%;
+	}
+	
+	.col-sm-2{
+		width: 30%;
+		position: relative;
+		left:15%;
+		color: black;
+
+		
+	}
+	
+	.row{
+		margin: 30px;
+	}
+	
+	
+	
+	
+ 
+</style>
+</head>
+
+<body>
+   <div>
+    <h1>välkommen till react</h1>
+	   <hr style="width: 25%; margin-top: -13px; margin-bottom: 22px;">
+		 <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur post Tarentum ad Archytam? Utrum igitur tibi litteram videor an totas paginas commovere?Quod autem principium officii quaerunt, melius quam Apparet statim, quae sint officia, <span style="color:yellow; font-style: italic;">Pyrrho; Dulce amarum, leve asperum, prope longe, stare movere, quadratum rotundum. Duo Reges: constructio interrete.Cupiditates non Epicuri divisione finiebat</span>, sed sua satietate. Apparet statim, quae sint officia, quae actiones.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur post Tarentum ad Archytam?  Duo Reges: constructio interrete. Cupiditates non Epicuri divisione finiebat, sed sua satietate. Apparet statim, quae sint officia, quae actiones.
+	   </p>
+   </div>
+	  	  	
+	<div class="parallax"></div>
+	
+	<h2>första delen av uppgift</h2>
+	<hr style="width: 21%; margin-top: -14px; margin_bottom:22px;"><br>
+	<p style="text-align:center; margin-top:-8px;">Den första delen av sidan ska innehålla ett textfält. Medan användaren skriver i det ska värdet skrivas ut under textfältet i en React-komponent som innehåller texten. </p>
+	<div id="app-root1">Utan React</div>  
+	  
+	<div class="parallax"></div>  
+	
+	<h2>andra delen av uppgift</h2>
+	<hr style="width: 20%; margin-top: -14px;"><br>
+	<p style="text-align:center; margin-top:-8px;">Den andra delen av sidan ska innehålla två textfält. När användaren skriver in tal i textfälten ska deras summa skrivas ut bredvid. Textfälten och resultatet ska ingå i en React-komponent.</p>
+	<div id="app-root2">Utan React</div>  
+	  
+	<div class="parallax"></div> 
+	
+	<h2>tredje delen av uppgift</h2>
+	<hr style="width: 20%; margin-top: -13px;"><br>
+	<p style="text-align:center;margin:100px; margin-top:-10px; margin-bottom:-10px;"> Den tredje delen av sidan ska ha en komponent med två knappar.Om man klickar på den första knappen ska skrivas ut på sidan och den första knappen ska byta CSS-klass, för att visa att den är aktiv. Om man klickar på den andra knappen ska på samma sätt skrivas ut.
+   </p>
+	<div id="app-root3">Utan React</div>  
+	  
+	<div class="parallax"></div>  
+
+    
+	<div style="text-align:center; margin:20px;">
+		<h2>Kontakt</h2>
+		<hr style="width: 7%; margin-top: -14px;">
+		<p >Zeena Bahram <br> mobilnummer: 0707511157  <br> Email: zeena_aywaz@yahoo.com</p>
+	</div>
+
+	
+	
+<script type="text/babel">
+
+class App1 extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			msg: ''
+			};
+		
+		
+		this.ChangeMsg = this.ChangeMsg.bind(this)
+		
+	}
+	ChangeMsg(event) {
+		var newmsg = event.target.value;
+		this.setState({msg:newmsg});
+	}
+	
+	
+	render() {
+		return (
+		  <div className="myform">
+			<input type="text" onKeyUp={this.ChangeMsg}	/>
+			<div>{this.state.msg}</div>
+		  </div>
+			
+		);
+	}
+}
+
+
+
+ReactDOM.render(
+  <App1></App1>,
+  document.getElementById('app-root1')
+);
+
+
+
+
+
+class App2 extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+           nummer1:"",
+           nummer2:""
+        };
+        this.input1 = this.input1.bind(this)
+        this.input2 = this.input2.bind(this)
+    }
+    
+    input1 (event) {
+        let num1 = event.target.value;
+        this.setState({nummer1: num1});
+    }
+    
+    input2 (event) {
+        let num2 = event.target.value;
+        this.setState({nummer2: num2});
+    }
+    
+    calculate () {
+        return Number(this.state.nummer1) + Number(this.state.nummer2); 
+    };
+    
+    render () {
+        return (
+            
+            <div>
+                <div className="col-sm-4">
+                    <input 
+                        type="text" 
+                        className="form-control input-lg"  
+                        placeholder="Skrif ett nummer"
+                        onChange={this.input1}
+                     />
+                 </div>
+                <div className="col-sm-1 backnd text-center"> + </div>
+                <div className="col-sm-4">
+                    <input 
+                        type="text" 
+                        className="form-control input-lg"  
+                        placeholder="skrif ett nummer"
+                        onChange={this.input2}
+                     />
+                </div>
+                <div className="col-sm-1 backnd"> = </div>
+                <div className="col-sm-2 backnd">
+                        {this.calculate()}
+                </div>
+            </div>
+        );
+    }
+}
+ ReactDOM.render (
+        <App2></App2>,
+        document.getElementById('app-root2')
+        );
+
+
+
+
+
+
+
+
+class App3 extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+           className1:"classone btn",
+           className2:"classone btn",    
+           textDisplay: "",
+           value1: 0,
+           value2: 0 ,
+           spanDisplay1: "none",
+           spanDisplay2: "none"    
+        };
+        
+        this.clickOnBtn1 = this.clickOnBtn1.bind(this)
+        this.clickOnBtn2 = this.clickOnBtn2.bind(this)
+    }
+    
+    clickOnBtn1 (event) {
+        this.setState({className1: "classtwo btn", className2: "classone btn"});
+        this.setState({textDisplay: event.target.innerHTML});
+        this.setState({value1: this.state.value1 +1});
+        this.setState({spanDisplay1: "inline"});
+        this.setState({spanDisplay2: "none"});
+
+    }
+    clickOnBtn2 (event) {
+        this.setState({className2: "classtwo btn", className1: "classone btn"});
+        this.setState({textDisplay: event.target.innerHTML});
+        this.setState({value2: this.state.value2 +1});
+        this.setState({spanDisplay2: "inline"});
+        this.setState({spanDisplay1: "none"});
+
+    }
+   
+    render () {
+        
+        return (
+          <div> 
+            <div className="row">
+                <div className="col-sm-4"></div>
+                <div className="col-sm-2">
+                    <button className={this.state.className1}
+                            onClick={this.clickOnBtn1}
+                        >
+                        Hej!
+                    </button>    
+                </div>
+                <div className="col-sm-2"> <br/>
+                    <button className={this.state.className2}
+                            onClick={this.clickOnBtn2}
+                        >
+                        Hejdå!
+                    </button> 
+                </div>
+                <div className="col-sm-4"></div>
+            </div>
+            <div className="row">
+                <div className="col-sm-4"></div>
+                <div className="col-sm-4" id="part3">
+                    {this.state.textDisplay}
+                    <span style={{display: this.state.spanDisplay1}}>
+                        {this.state.value1}
+                    </span>
+                    <span style={{display: this.state.spanDisplay2}}>{this.state.value2}</span>
+                </div>
+                <div className="col-sm-4"></div>
+            </div>    
+        </div>        
+        );
+    }
+}
+ ReactDOM.render (
+        <App3></App3>,
+        document.getElementById('app-root3')
+        );
+
+
+
+
+
+
+
+    </script>
+
+	  
+	  
+	  
+	  
+	  
+  </body>
+</html>
+
